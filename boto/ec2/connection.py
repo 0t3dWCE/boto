@@ -30,7 +30,7 @@ from datetime import datetime
 from datetime import timedelta
 import boto
 from boto.connection import AWSQueryConnection
-from boto.resultset import ResultSet
+from boto.resultset import ResultSet, BooleanResult
 from boto.ec2.ec2object import PlainXmlDict
 from boto.ec2.image import Image, ImageAttribute
 from boto.ec2.export_task import ExportTask
@@ -552,7 +552,7 @@ class EC2Connection(AWSQueryConnection):
 
     def cancel_export_task(self, export_task_id):
         params = {'ExportTaskId': export_task_id}
-        return self.get_object('CancelExportTask', params, ResultSet, verb='POST')
+        return self.get_object('CancelExportTask', params, BooleanResult, verb='POST')
 
     # ImageAttribute methods
 
