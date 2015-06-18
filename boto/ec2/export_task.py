@@ -10,34 +10,34 @@ class ExportTask(TaggedEC2Object):
         TaggedEC2Object.__init__(self, connection)
         self.request_id = None
         self.description = None
-        self.exportTaskId = None
-        self.containerFormat = None
-        self.diskImageFormat = None
-        self.s3Bucket = None
-        self.s3Key = None
-        self.instanceId = None
-        self.targetEnvironment = None
+        self.id = None
+        self.container_format = None
+        self.disk_image_format = None
+        self.s3_bucket = None
+        self.s3_key = None
+        self.instance_id = None
+        self.target_environment = None
         self.state = None
-        self.statusMessage = None
+        self.status_message = None
         
     def endElement(self, name, value, connection):
         if name == 'description':
             self.description = value
         elif name == 'exportTaskId':
-            self.exportTaskId = value
+            self.id = value
         elif name == 'containerFormat':
-            self.containerFormat = value
+            self.container_format= value
         elif name == 'diskImageFormat':
-            self.diskImageFormat = value
+            self.disk_image_format = value
         elif name == 's3Bucket':
-            self.s3Bucket = value
+            self.s3_bucket = value
         elif name == 's3Key':
-            self.s3Key = value
+            self.s3_key = value
         elif name == 'instanceId':
-            self.instanceId = value
+            self.instance_id = value
         elif name == 'targetEnvironment':
-            self.targetEnvironment = value
+            self.target_environment = value
         elif name == 'state':
             self.state = value
         elif name == 'statusMessage':
-            self.statusMessage = value
+            self.status_message= value
