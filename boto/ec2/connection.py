@@ -548,7 +548,7 @@ class EC2Connection(AWSQueryConnection):
         if export_task_ids:
             self.build_list_params(params, export_task_ids, 'ExportTaskId')
         return self.get_list('DescribeExportTasks', params,
-                             [('exportTaskSet', ExportTask)], verb='GET')
+                             [('item', ExportTask)], verb='GET')
 
     def cancel_export_task(self, export_task_id):
         params = {'ExportTaskId': export_task_id}
